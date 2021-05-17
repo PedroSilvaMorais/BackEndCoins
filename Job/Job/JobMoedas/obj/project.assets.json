@@ -178,11 +178,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Testes\\Job\\Job\\JobMoedas\\JobMoedas.csproj",
+      "projectUniqueName": "C:\\Wipro\\Job\\Job\\JobMoedas\\JobMoedas.csproj",
       "projectName": "JobMoedas",
-      "projectPath": "C:\\Testes\\Job\\Job\\JobMoedas\\JobMoedas.csproj",
+      "projectPath": "C:\\Wipro\\Job\\Job\\JobMoedas\\JobMoedas.csproj",
       "packagesPath": "C:\\Users\\mpedr\\.nuget\\packages\\",
-      "outputPath": "C:\\Testes\\Job\\Job\\JobMoedas\\obj\\",
+      "outputPath": "C:\\Wipro\\Job\\Job\\JobMoedas\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\mpedr\\AppData\\Roaming\\NuGet\\NuGet.Config",

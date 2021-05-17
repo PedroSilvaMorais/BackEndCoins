@@ -12,54 +12,32 @@ namespace JobMoedas.Repository
 {
     public class CsvRepository : ICsvRepository
     {
-        public List<Moeda> LerDadosMoeda(string filePath, Coin moeda)
+        private List<Moeda> LerDadosMoeda(string filePath, Coin moeda)
         {
             using (var reader = new StreamReader($"{filePath}\\DadosMoeda.csv"))
             {
                 Console.WriteLine($"{DateTime.Now} - Lendo o arquivo DadosMoeda.csv...");
 
-                List<Moeda> moedasCsv = new List<Moeda>();
-                while (!reader.EndOfStream)
-                {
-                    var line = reader.ReadLine();
-                    var values = line.Split(';');
+                var moedasCsv = TrazerDadosMoedaCsv(reader);
 
-                    if (values[0] != "ID_MOEDA")
-                    {
-                        moedasCsv.Add(new Moeda() { IdMoeda = values[0], DataRef = Convert.ToDateTime(values[1]) });
-                    }
-                }
+                var moedasFilter = moedasCsv.FindAll(x => x.DataRef >= moeda.Data_Inicio && x.DataRef <= moeda.Data_Fim);
 
-                List<Moeda> moedasFilter = moedasCsv.FindAll(x => x.DataRef >= moeda.Data_Inicio && x.DataRef <= moeda.Data_Fim);
-
-                Console.WriteLine($"{DateTime.Now} - Leitura finalizada.");
+                Console.WriteLine($"{DateTime.Now} - Leitura finalizada. \n");
 
                 return moedasFilter;
             }
         }
 
-        public List<MoedaDTO> LerDadosCotacao(string filePath, Coin coin)
+        private List<MoedaDTO> LerDadosCotacao(string filePath, Coin coin)
         {
             var lmoedas = LerDadosMoeda(filePath, coin);
 
             using (var reader = new StreamReader($"{filePath}\\DadosCotacao.csv"))
             {
-                Console.WriteLine($"{DateTime.Now} - Iniciando retorno dos valores do arquivo DadosCotacao.csv...");
-                Console.WriteLine($"{DateTime.Now} - Este arquivo é um pouco grande, aguarde um pouco por gentileza...");
+                Console.WriteLine($"{DateTime.Now} - Lendo o arquivo DadosCotacao.csv...");
+                Console.WriteLine($"{DateTime.Now} - Esse passo pode demorar um pouco. Aguarde...");
 
-                List<Cotacao> cotacoesCsv = new List<Cotacao>();
-                while (!reader.EndOfStream)
-                {
-                    var line = reader.ReadLine();
-                    var values = line.Split(';');
-
-                    if (values[0] != "vlr_cotacao")
-                    {
-                        cotacoesCsv.Add(new Cotacao() { ValCotacao = values[0], CodCotacao = Convert.ToByte(values[1]), DataCotacao = Convert.ToDateTime(values[2]) });
-                    }
-                }
-
-                List<MoedaDTO> cotacaoFiltrada = new List<MoedaDTO>();
+                var cotacoesCsv = TrazerDadosCotacaoCsv(reader);
 
                 var lmoedasAgrupadas = lmoedas
                     .OrderBy(x => x.IdMoeda)
@@ -67,20 +45,9 @@ namespace JobMoedas.Repository
                     .Select(a => a.ToList())
                     .ToList();
 
-                foreach (var moeda in lmoedasAgrupadas)
-                {
-                    foreach (var item in moeda)
-                    {
-                        int codCotacao = (int)Enum.Parse(typeof(CodCotacaoEnum.CodCotacao), moeda[0].IdMoeda);
+                var cotacaoFiltrada = FiltrarCotacao(lmoedasAgrupadas, cotacoesCsv);
 
-                        var cotacao = cotacoesCsv.FindAll(x => x.CodCotacao == codCotacao && x.DataCotacao == item.DataRef).FirstOrDefault();
-
-
-                        cotacaoFiltrada.Add(new MoedaDTO { IdMoeda = item.IdMoeda, DataRef = item.DataRef, ValCotacao = cotacao.ValCotacao });
-                    }
-                }
-
-                Console.WriteLine($"{DateTime.Now} - Valores do arquivo DadosCotacao.csv retornados...");
+                Console.WriteLine($"{DateTime.Now} - Valores do arquivo DadosCotacao.csv retornados. \n");
                 return cotacaoFiltrada;
             }
         }
@@ -99,11 +66,63 @@ namespace JobMoedas.Repository
 
                 foreach (var moeda in lMoedasDTO)
                 {
-                    sw.WriteLine($"{moeda.IdMoeda}; {moeda.DataRef.ToString()}; {moeda.ValCotacao}");
+                    sw.WriteLine($"{moeda.IdMoeda}; {moeda.DataRef.ToString("dd/MM/yyyy")}; {moeda.ValCotacao}");
                 }
 
-                Console.WriteLine($"{DateTime.Now} - Arquivo Salvo! Este se encontra no caminho {filePath}\\{nomeAquivo}.csv");
+                Console.WriteLine($"{DateTime.Now} - Arquivo Salvo! \n Este se encontra no caminho {filePath}\\{nomeAquivo}.csv \n");
             }
+        }
+
+        private List<Moeda> TrazerDadosMoedaCsv(StreamReader reader)
+        {
+            List<Moeda> dadosCsv = new List<Moeda>();
+            while (!reader.EndOfStream)
+            {
+                var line = reader.ReadLine();
+                var values = line.Split(';');
+
+                if (values[0] != "ID_MOEDA")
+                {
+                    dadosCsv.Add(new Moeda() { IdMoeda = values[0], DataRef = Convert.ToDateTime(values[1]) });
+                }
+            }
+            return dadosCsv;
+        }
+
+        private List<MoedaDTO> FiltrarCotacao(List<List<Moeda>> lmoedasAgrupadas, List<Cotacao> cotacoesCsv)
+        {
+            List<MoedaDTO> dadosFiltrados = new List<MoedaDTO>();
+
+            foreach (var moeda in lmoedasAgrupadas)
+            {
+                foreach (var item in moeda)
+                {
+                    int codCotacao = (int)Enum.Parse(typeof(CodCotacaoEnum.CodCotacao), moeda[0].IdMoeda);
+
+                    var cotacao = cotacoesCsv.FindAll(x => x.CodCotacao == codCotacao && x.DataCotacao == item.DataRef).FirstOrDefault();
+
+                    dadosFiltrados.Add(new MoedaDTO { IdMoeda = item.IdMoeda, DataRef = item.DataRef, ValCotacao = cotacao.ValCotacao });
+                }
+            }
+
+            return dadosFiltrados;
+        }
+
+        private List<Cotacao> TrazerDadosCotacaoCsv(StreamReader reader)
+        {
+            List<Cotacao> dadosCsv = new List<Cotacao>();
+            while (!reader.EndOfStream)
+            {
+                var line = reader.ReadLine();
+                var values = line.Split(';');
+
+                if (values[0] != "vlr_cotacao")
+                {
+                    dadosCsv.Add(new Cotacao() { ValCotacao = values[0], CodCotacao = Convert.ToByte(values[1]), DataCotacao = Convert.ToDateTime(values[2]) });
+                }
+            }
+
+            return dadosCsv;
         }
     }
 }

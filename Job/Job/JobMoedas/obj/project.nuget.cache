@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "NdaIpq+os0TUigqMkFDo4VTOK+5BmUzQ8+SPw2AdzxMoS3MO6Ms8NgV+9f23WD9gDmUYkdTdwA3yGgebPo3Jag==",
+  "dgSpecHash": "wCSc4BgX97CVNeaTMQf93UOjZ7EFJVhbVVXrwJZLnpnNGCnv6ocbuiQb3MZnh+q6+sufVxDl0ZerFMROBwtumQ==",
   "success": true,
-  "projectFilePath": "C:\\Testes\\Job\\Job\\JobMoedas\\JobMoedas.csproj",
+  "projectFilePath": "C:\\Wipro\\Job\\Job\\JobMoedas\\JobMoedas.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\mpedr\\.nuget\\packages\\grpc.core\\2.37.1\\grpc.core.2.37.1.nupkg.sha512",
     "C:\\Users\\mpedr\\.nuget\\packages\\grpc.core.api\\2.37.1\\grpc.core.api.2.37.1.nupkg.sha512",

@@ -32,7 +32,7 @@ namespace JobMoedas.Repository
 
                         if (ResultMoeda.Moeda != null)
                         {
-                            Console.WriteLine($"{DateTime.Now} - Moeda retornada da api: {ResultMoeda.Moeda}, data inicio: {ResultMoeda.Data_Inicio}, data fim: {ResultMoeda.Data_Fim}");
+                            Console.WriteLine($"{DateTime.Now} - Moeda retornada da api: {ResultMoeda.Moeda}, data inicio: {ResultMoeda.Data_Inicio.ToString("dd/MM/yyyy")}, data fim: {ResultMoeda.Data_Fim.ToString("dd/MM/yyyy")}");
                         }
                         else
                         {
