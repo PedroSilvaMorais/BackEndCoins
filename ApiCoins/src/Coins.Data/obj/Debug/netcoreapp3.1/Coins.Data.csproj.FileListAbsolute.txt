@@ -1,0 +1,15 @@
+C:\Testes\ApiCoins\src\Coins.Data\bin\Debug\netcoreapp3.1\Coins.Business.dll
+C:\Testes\ApiCoins\src\Coins.Data\obj\Debug\netcoreapp3.1\Coins.Data.csprojAssemblyReference.cache
+C:\Testes\ApiCoins\src\Coins.Data\obj\Debug\netcoreapp3.1\Coins.Data.AssemblyInfoInputs.cache
+C:\Testes\ApiCoins\src\Coins.Data\obj\Debug\netcoreapp3.1\Coins.Data.AssemblyInfo.cs
+C:\Testes\ApiCoins\src\Coins.Data\bin\Debug\netcoreapp3.1\Coins.Data.deps.json
+C:\Testes\ApiCoins\src\Coins.Data\bin\Debug\netcoreapp3.1\Coins.Data.runtimeconfig.json
+C:\Testes\ApiCoins\src\Coins.Data\bin\Debug\netcoreapp3.1\Coins.Data.runtimeconfig.dev.json
+C:\Testes\ApiCoins\src\Coins.Data\bin\Debug\netcoreapp3.1\Coins.Data.dll
+C:\Testes\ApiCoins\src\Coins.Data\bin\Debug\netcoreapp3.1\Coins.Data.pdb
+C:\Testes\ApiCoins\src\Coins.Data\bin\Debug\netcoreapp3.1\Coins.Business.pdb
+C:\Testes\ApiCoins\src\Coins.Data\obj\Debug\netcoreapp3.1\Coins.Data.csproj.CoreCompileInputs.cache
+C:\Testes\ApiCoins\src\Coins.Data\obj\Debug\netcoreapp3.1\Coins.Data.csproj.CopyComplete
+C:\Testes\ApiCoins\src\Coins.Data\obj\Debug\netcoreapp3.1\Coins.Data.dll
+C:\Testes\ApiCoins\src\Coins.Data\obj\Debug\netcoreapp3.1\Coins.Data.pdb
+C:\Testes\ApiCoins\src\Coins.Data\obj\Debug\netcoreapp3.1\Coins.Data.genruntimeconfig.cache

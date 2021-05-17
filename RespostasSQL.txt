@@ -1,0 +1,25 @@
+Resposta 1:
+
+SELECT Count(a.IdProcesso) as [Processos], b.dsStatus FROM tb_Processo a
+	INNER JOIN tb_Status b ON a.idStatus = b.idStatus
+	GROUP BY b.dsStatus
+
+
+Resposta 2:
+
+SELECT TOP 1 a.nroProcesso, b.dtAndamento FROM tb_Processo a
+	INNER JOIN tb_Andamento b ON b.idProcesso = a.idProcesso
+	WHERE a.DtEncerramento BETWEEN '2013-01-01' AND 2013-12-31'
+	ORDER BY dtAndamaneto desc
+
+
+Resposta 3:
+
+SELECT * FROM Count(DtEncerramento) FROM tb_Processo
+	WHERE Count(DtEncerramento) > 5
+	GROUP BY DtEncerramento
+
+
+Resposta 4:
+
+SELECT REPLICATE(0,(12-LEN(idProcesso))) + CONVERT(VARCHAR,idProcesso) FROM tb_Processo

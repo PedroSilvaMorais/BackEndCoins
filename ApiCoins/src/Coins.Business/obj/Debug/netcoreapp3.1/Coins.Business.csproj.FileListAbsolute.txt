@@ -1,0 +1,9 @@
+C:\Testes\ApiCoins\src\Coins.Business\bin\Debug\netcoreapp3.1\Coins.Business.deps.json
+C:\Testes\ApiCoins\src\Coins.Business\bin\Debug\netcoreapp3.1\Coins.Business.dll
+C:\Testes\ApiCoins\src\Coins.Business\bin\Debug\netcoreapp3.1\Coins.Business.pdb
+C:\Testes\ApiCoins\src\Coins.Business\obj\Debug\netcoreapp3.1\Coins.Business.csprojAssemblyReference.cache
+C:\Testes\ApiCoins\src\Coins.Business\obj\Debug\netcoreapp3.1\Coins.Business.AssemblyInfoInputs.cache
+C:\Testes\ApiCoins\src\Coins.Business\obj\Debug\netcoreapp3.1\Coins.Business.AssemblyInfo.cs
+C:\Testes\ApiCoins\src\Coins.Business\obj\Debug\netcoreapp3.1\Coins.Business.csproj.CoreCompileInputs.cache
+C:\Testes\ApiCoins\src\Coins.Business\obj\Debug\netcoreapp3.1\Coins.Business.dll
+C:\Testes\ApiCoins\src\Coins.Business\obj\Debug\netcoreapp3.1\Coins.Business.pdb

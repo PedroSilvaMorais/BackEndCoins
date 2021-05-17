@@ -1,0 +1,13 @@
+{
+  "version": 2,
+  "dgSpecHash": "NdaIpq+os0TUigqMkFDo4VTOK+5BmUzQ8+SPw2AdzxMoS3MO6Ms8NgV+9f23WD9gDmUYkdTdwA3yGgebPo3Jag==",
+  "success": true,
+  "projectFilePath": "C:\\Testes\\Job\\Job\\JobMoedas\\JobMoedas.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\mpedr\\.nuget\\packages\\grpc.core\\2.37.1\\grpc.core.2.37.1.nupkg.sha512",
+    "C:\\Users\\mpedr\\.nuget\\packages\\grpc.core.api\\2.37.1\\grpc.core.api.2.37.1.nupkg.sha512",
+    "C:\\Users\\mpedr\\.nuget\\packages\\newtonsoft.json\\13.0.1\\newtonsoft.json.13.0.1.nupkg.sha512",
+    "C:\\Users\\mpedr\\.nuget\\packages\\system.memory\\4.5.3\\system.memory.4.5.3.nupkg.sha512"
+  ],
+  "logs": []
+}
